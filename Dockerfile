@@ -7,7 +7,7 @@ COPY /src ./src/
 
 RUN mvn package
 
-FROM openjdk:17-slim
+FROM openjdk:17-slim as final
 WORKDIR /app
 COPY --from=builder /app/target/hello-world-1.0.0.jar .
 
